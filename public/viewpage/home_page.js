@@ -7,6 +7,7 @@ import { ShoppingCart } from '../model/shoppingcart.js'
 import * as Constant from '../model/constant.js'
 import * as UserPage from '../viewpage/user_page.js'
 
+
 let order
 let products
 let keywords
@@ -308,26 +309,23 @@ export async function home_page() {
             html += '</div>'
             Element.modalViewCommentsBody.innerHTML = html
 
-            var deleteComments = document.getElementsByClassName('delete-comment-button')
-            for (let i = 0; i < deleteComments.length; i++) {
-                deleteComments[i].addEventListener('click', async () => {
-                    console.log(deleteComments[i].value)
-                    const label = Util.disableButton(deleteComments[i])
-                    let comment
+            var deleteForms = document.getElementsByClassName('delete-comment-button')
+            for (let i = 0; i < deleteForms.length; i++) {
+                deleteForms[i].addEventListener('click', async () => {
+                    console.log(deleteForms[i].value)
                     try {
-                        comment = await FirebaseController.deleteComment(deleteComments[i].value)
-                        Util.popupInfo("Success", `Comment was deleted!`, 'modal-view-comment')
+                        await FirebaseController.deleteComment(deleteForms[i].value)
+                        Util.popupInfo('Success', `Comment was deleted!`, 'modal-view-comment')
                     } catch (e) {
                         Util.popupInfo('Error at Comment', JSON.stringify(e), 'modal-view-comment')
                         return
                     }
-                    Util.enableButton(deleteComments[i], label)
                 })
             }
-            Element.modalViewCommentsBody.innerHTML = html
         })
     }
 }
+
 function buildProductCard(product, index, role) {
     return `
         <div class="card" style="max-width: 300px; display: inline-block;">
@@ -396,20 +394,22 @@ function buildCommentView(comment) {
                 <img src="${url} "><br>
                     ${comment.content}
             `
-    if (Constant.adminEmails.includes(Auth.currentUser.email)) {
-        html += `  <div class="vertical-center">
-                            <button class="delete-comment-button" data-toggle="modal" value=${comment.docId}>Delete</button>
+    if (Auth.currentUser) {
+        if (Constant.adminEmails.includes(Auth.currentUser.email)) {
+            html += `  <div class="vertical-center">
+                            <button class="delete-comment-button" data-toggle="modal" value="${comment.docId}">Delete</button>
                         </div>
                     </div>   
                 <hr>
                 `
+            return html
+        }
     }
-    else {
-        html += `
-                    </div>   
-                    <hr>
-                `
-    }
+
+    html += `
+        </div>   
+        <hr>
+    `
     return html
 }
 
