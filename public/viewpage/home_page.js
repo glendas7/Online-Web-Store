@@ -268,18 +268,24 @@ export async function home_page() {
                 Util.popupInfo('Error at comment', JSON.stringify(e))
                 return
             }
-            let num = 0
-            let total = 0
-            let avg = '--'
+            var num = 0
+            var total = 0
+            var avg = 0
             if (comments && comments.length > 0) {
                 comments.forEach(c => {
                     if (c.rating != null) {
-                        num++
-                        total += c.rating
+                        num++;
+                        total += Number(c.rating);
+                        console.log(c.rating)
                     }
                 })
                 avg = total / num
+                console.log(total)
+                console.log(num)
+                console.log(avg)
             }
+            else avg = '--'
+
 
             let html = `
             <img src="${product.imageURL} class=" card-img-top" style="max-height: 300px; max-width: 300px;"><br><BR>
