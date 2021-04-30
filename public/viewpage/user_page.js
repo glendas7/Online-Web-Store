@@ -96,8 +96,8 @@ export async function user_page() {
 export function buildUserCard(user, info) {
 
     return `
-    <div id="user-card-${user.uid}"class="card" style="width: 18rem; display: inline-block">
-    <img src="${user.photoURL != null ? user.photoUrl : 'images/user.png'}" class="card-img-top">
+    <div id="user-card-${user.uid}"class="card" style="max-height: 700px; max-width: 700px; display: inline-block">
+    <img src="images/user.png">
     <div class="card-body">
         <h5 class="card-title">${user.email}</h5>
         <p class="card-text">
