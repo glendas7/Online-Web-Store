@@ -1,4 +1,4 @@
-# WS_TermProj
+# WebServer_TermProj
 https://cmsc4373-glendas.web.app/
 
 
