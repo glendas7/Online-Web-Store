@@ -1,0 +1,161 @@
+@font-face {
+  font-family: Spooky;
+  src: url("SpookySkeleton.ttf");
+}
+
+@font-face {
+  font-family: Drip;
+  src: url("Light.ttf");
+}
+
+.my-banner {
+  width: 100%;
+  height: 100px;
+  font-size: 400%;
+  text-align: center;
+  font-family: Spooky;
+  color: black;
+  background-color: orangered;
+}
+/* * {
+  font-family: Drip;
+} */
+
+h1,
+h2,
+h5 {
+  font-family: Drip;
+}
+
+body {
+  background-image: url("image.jfif");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.card {
+  /* background-color: orangered; */
+  opacity: 0.85;
+}
+
+.btn {
+  background-color: orange;
+  color: black;
+  border-color: black;
+}
+
+button:hover {
+  background-color: rgb(153, 100, 0);
+}
+.jumbotron {
+  background-color: transparent;
+}
+
+.user-auth {
+  padding-right: 20px;
+}
+
+.admin-auth {
+  padding-right: 20px;
+}
+
+.pre-auth {
+  padding-right: 20px;
+}
+
+.post-auth {
+  padding-right: 20px;
+}
+
+/* modal design */
+input {
+  display: block;
+  margin: 8px 0;
+  padding: 8px 2px;
+  border-width: 0 0 2px 0;
+  width: 100%;
+}
+
+.modal-comment {
+  text-align: center;
+  padding: 0 !important;
+  border-width: 0 0 2px 0;
+  width: 500px;
+  height: 700px;
+}
+
+.rating {
+  float: left;
+  padding-left: 165px;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+  clip: rect(0, 0, 0, 0);
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 1em;
+  padding: 0 0.1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 200%;
+  line-height: 1.2;
+  color: #ddd;
+  text-shadow: 1px 1px #bbb, 2px 2px #666, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+}
+
+.rating:not(:checked) > label:before {
+  content: "★ ";
+}
+
+.rating > input:checked ~ label {
+  color: #f70;
+  text-shadow: 1px 1px #c60, 2px 2px #940, 0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: gold;
+  text-shadow: 1px 1px goldenrod, 2px 2px #b57340,
+    0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+  text-shadow: 1px 1px goldenrod, 2px 2px #b57340,
+    0.1em 0.1em 0.2em rgba(0, 0, 0, 0.5);
+}
+
+.rating > label:active {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  *zoom: 1;
+}
+
+#status,
+button {
+  margin: 20px 0;
+}

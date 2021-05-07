@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      function changePID(pid) {
+        document.getElementsByName("productId").value = pid;
+      }
+
+      function changeCID(cid) {
+        document.getElementsByName("commentId").value = cid;
+      }
+    </script>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>Ghosts and GumDrops Online Shop</title>
+  </head>
+
+  <body>
+    <div class="my-banner">Ghosts and GumDrops Online Shop</div>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <div class="pre-auth">
+            <button
+              id="menu-button-signin"
+              class="btn"
+              data-toggle="modal"
+              data-target="#modal-form-signin"
+            >
+              Sign In
+            </button>
+          </div>
+          <div class="user-auth">
+            <button id="menu-button-home" class="btn">Home</button>
+          </div>
+          <div class="admin-auth">
+            <button id="menu-button-home-admin" class="btn">Home</button>
+          </div>
+          <div class="user-auth">
+            <button id="menu-button-purchases" class="btn">Purchases</button>
+          </div>
+          <div class="user-auth">
+            <button id="menu-button-activity" class="btn">Activity</button>
+          </div>
+          <div class="admin-auth">
+            <button id="menu-button-products" class="btn">Products</button>
+          </div>
+          <div class="admin-auth">
+            <button id="menu-button-users" class="btn">Users</button>
+          </div>
+          <div class="post-auth">
+            <button id="menu-button-signout" class="btn">Sign Out</button>
+          </div>
+          <div class="toggle-user">
+            <button id="menu-button-user" class="btn">View as User</button>
+          </div>
+          <div class="toggle-admin">
+            <button id="menu-button-admin" class="btn">View as Admin</button>
+          </div>
+        </ul>
+        <span>
+          <div class="post-auth">
+            <form
+              id="form-search"
+              class="form-inline my-2 my-lg-0 modal-menus-post-auth"
+            >
+              <input
+                name="searchKeywords"
+                class="form-control mr-sm-2 div-button"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-lg my-2 my-sm-0"
+                id="search-button"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </span>
+        <div class="user-auth">
+          <button
+            id="menu-button-shoppingcart"
+            class="btn"
+            type="button"
+          >
+            <img src="images/cart.png" width="30px" />
+            (<span id="shoppingcart-count">0</span>)
+          </button>
+        </div>
+        <div class="user-auth">
+          <button
+            id="menu-button-profile"
+            class="btn post-auth"
+          >
+            Profile
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Modal 0 Popup Info/Error-->
+    <div
+      class="modal fade"
+      id="modal-popup-info"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-popup-info-title"></h5>
+          </div>
+          <div id="modal-popup-info-body" class="modal-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal- Sign in -->
+    <div
+      class="modal fade"
+      id="modal-form-signin"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-form-signin-label">Sign In</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form-signin" method="post">
+              <div>
+                <input type="email" name="email" placeholder="email address" />
+              </div>
+              <div>
+                <input type="password" name="password" placeholder="password" />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-outline-primary">
+                  Sign In
+                </button>
+              </div>
+            </form>
+            <div>
+              No Account Yet?
+              <button id="button-signup" class="btn btn-outline-info">
+                Create New Account
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transaction Details Modal -->
+    <div
+      class="modal fade"
+      id="modal-transaction"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-transaction-title"></h5>
+          </div>
+          <div class="modal-body" id="modal-transaction-body"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign up Modal -->
+    <div
+      class="modal fade"
+      id="modal-form-signup"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-signup-label">
+              Create New Account
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form-signup" method="post">
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email address"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  required
+                  minlength="6"
+                />
+              </div>
+              <div>
+                <input
+                  type="password"
+                  name="passwordConfirm"
+                  placeholder="confirm password"
+                  required
+                  minlength="6"
+                />
+                <span id="form-signup-password-error" style="color: red"></span>
+              </div>
+              <button type="submit" class="btn btn-outline-primary">
+                + Create Account
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Create Comment Modal -->
+    <div
+      class="modal fade"
+      id="modal-comment"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable modal-comment">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-comment-title"></h5>
+          </div>
+          <div class="modal-body" id="modal-comment-body">
+            <h2>Rate and Comment</h2>
+            <input type="hidden" name="productId" value="" />
+            <img src=" " /><br />
+            <form class="submit-comment-form" id="ratingForm">
+              <fieldset class="rating" id="ratingStar">
+                <input type="radio" id="star5" name="rating" value="5" /><label
+                  for="star5"
+                  >5 stars</label
+                >
+                <input type="radio" id="star4" name="rating" value="4" /><label
+                  for="star4"
+                  >4 stars</label
+                >
+                <input type="radio" id="star3" name="rating" value="3" /><label
+                  for="star3"
+                  >3 stars</label
+                >
+                <input type="radio" id="star2" name="rating" value="2" /><label
+                  for="star2"
+                  >2 stars</label
+                >
+                <input type="radio" id="star1" name="rating" value="1" /><label
+                  for="star1"
+                  >1 star</label
+                >
+              </fieldset>
+              <div class="clearfix"></div>
+              <textarea
+                id="comment-text"
+                style="resize: none"
+                cols="40"
+                rows="8"
+              ></textarea>
+              <br />
+            </form>
+            <button id="comment-submit-button">Submit</button>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal: Edit Product-->
+    <div
+      class="modal fade"
+      id="modal-edit-product"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-edit-product-label">
+              Update Product
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form-edit-product" method="post">
+              <input type="hidden" name="docId" />
+              <input type="hidden" name="imageName" />
+              <div>
+                Name: <input type="text" name="name" />
+                <p id="error-edit-name" class="error-edit-product"></p>
+              </div>
+              <div>
+                Price: <input type="text" name="price" />
+                <p id="error-edit-price" class="error-edit-product"></p>
+              </div>
+              <div>
+                Summary: <br /><textarea name="summary"></textarea>
+                <p id="error-edit-summary" class="error-edit-product"></p>
+              </div>
+              <div>
+                <img id="form-edit-image-tag" style="display: block" />
+                <input type="file" id="form-edit-image-button" value="upload" />
+              </div>
+              <div>
+                <button type="submit" class="btn btn-outline-primary">
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Add Product-->
+    <div
+      class="modal fade"
+      id="modal-add-product"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-add-product-label">
+              Add Product
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form-add-product" method="post">
+              <div>
+                <input type="text" name="name" placeholder="product name" />
+                <p id="error-add-name" class="error-add-product"></p>
+              </div>
+              <div>
+                <input type="text" name="price" placeholder="price ($)" />
+                <p id="error-add-price" class="error-add-product"></p>
+              </div>
+              <div>
+                Summary: <br /><textarea name="summary"></textarea>
+                <p id="error-add-summary" class="error-add-product"></p>
+              </div>
+              <div>
+                Image:
+                <img
+                  id="form-add-img-tag"
+                  style="display: block; max-height: 500px; max-width: 400px"
+                />
+                <input id="form-add-img-button" type="file" value="upload" />
+                <p id="error-add-image" class="error-add-product"></p>
+              </div>
+              <div>
+                <button type="submit" class="btn btn-outline-primary">
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Edit Comment Modal -->
+    <div
+      class="modal fade"
+      id="modal-edit-comment"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable modal-comment">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-edit-comment-title"></h5>
+          </div>
+          <div class="modal-body" id="modal-edit-comment-body">
+            <br />
+            <h2>Edit Rating and Comment</h2>
+            <input type="hidden" name="commentId" value="" />
+            <img src=" " /><br />
+            <form class="submit-edit-comment-form" id="editratingForm">
+              <fieldset class="rating" id="editRatingStar">
+                <input type="radio" id="estar5" name="rating" value="5" /><label
+                  for="estar5"
+                  title="Rocks!"
+                  >5 stars</label
+                >
+                <input type="radio" id="estar4" name="rating" value="4" /><label
+                  for="estar4"
+                  title="Pretty good"
+                  >4 stars</label
+                >
+                <input type="radio" id="estar3" name="rating" value="3" /><label
+                  for="estar3"
+                  title="Meh"
+                  >3 stars</label
+                >
+                <input type="radio" id="estar2" name="rating" value="2" /><label
+                  for="estar2"
+                  title="Kinda bad"
+                  >2 stars</label
+                >
+                <input type="radio" id="estar1" name="rating" value="1" /><label
+                  for="estar1"
+                  title="Sucks big time"
+                  >1 star</label
+                >
+              </fieldset>
+              <div class="clearfix"></div>
+              <textarea
+                id="edit-comment-text"
+                style="resize: none"
+                cols="40"
+                rows="8"
+              ></textarea>
+
+              <br />
+            </form>
+
+            <button id="edit-comment-submit-button">Update</button>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--View Comment Modal -->
+    <div
+      class="modal fade"
+      id="modal-view-comment"
+      data-backdrop="static"
+      data-keyboard="false"
+      tabindex="-1"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-xl modal-dialog-scrollable modal-comment">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modal-view-comment-title"></h5>
+          </div>
+          <input type="hidden" name="view-comment-productId" value="" />
+          <div class="modal-body" id="modal-view-comment-body"></div>
+          <div class="modal-button" id="modal-view-comment-delete"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- //main content of page -->
+    <div id="main-content" class="jumbotron"></div>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/8.3.0/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/8.3.0/firebase-auth.js"></script>
+    <script defer src="/__/firebase/8.3.0/firebase-firestore.js"></script>
+    <script defer src="/__/firebase/8.3.0/firebase-functions.js"></script>
+    <script defer src="/__/firebase/8.3.0/firebase-storage.js"></script>
+    <!-- 
+          initialize the SDK after all desired features are loaded, set useEmulator to false
+          to avoid connecting the SDK to running emulators.
+        -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+    <script type="module" src="./app.js"></script>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
