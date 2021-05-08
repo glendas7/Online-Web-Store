@@ -7,7 +7,6 @@ import * as Util from '../viewpage/util.js'
 
 export function addEventListeners() {
     Element.menuButtonPurchases.addEventListener('click', () => {
-        
         history.pushState(null, null, Routes.routePathname.PURCHASES)
         purchases_page()
     })
@@ -43,7 +42,7 @@ export async function purchases_page() {
         <tr><td>
         <form class="purchase-history" method ="post">
             <input type="hidden" name="index" value="${index}">
-            <button class="btn btn-outline-secondary" type="submit">
+            <button class="btn" type="submit">
                 ${new Date(carts[index].timestamp).toString()}
         </form>
         <button class="delete-purchase" value=${carts[index].docId}>Delete</button>

@@ -32,8 +32,7 @@
 
   <body>
     <div class="my-banner">Ghosts and GumDrops Online Shop</div>
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light">
       <button
         class="navbar-toggler"
         type="button"
@@ -48,96 +47,75 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <button
-            id="menu-button-signin"
-            class="btn btn-outline-danger pre-auth"
-            data-toggle="modal"
-            data-target="#modal-form-signin"
-          >
-            Sign In
-          </button>
-          <div class="user-auth">
-            <button id="menu-button-home" class="btn btn-outline-primary">
-              Home
-            </button>
-          </div>
-          <div class="admin-auth">
-            <button id="menu-button-home-admin" class="btn btn-outline-success">
-              Home
+          <div class="pre-auth">
+            <button
+              id="menu-button-signin"
+              class="btn"
+              data-toggle="modal"
+              data-target="#modal-form-signin"
+            >
+              Sign In
             </button>
           </div>
           <div class="user-auth">
-            <button id="menu-button-purchases" class="btn btn-outline-primary">
-              Purchases
-            </button>
+            <button id="menu-button-home" class="btn">Home</button>
+          </div>
+          <div class="admin-auth">
+            <button id="menu-button-home-admin" class="btn">Home</button>
           </div>
           <div class="user-auth">
-            <button id="menu-button-activity" class="btn btn-outline-primary">
-              Activity
-            </button>
+            <button id="menu-button-purchases" class="btn">Purchases</button>
+          </div>
+          <div class="user-auth">
+            <button id="menu-button-activity" class="btn">Activity</button>
           </div>
           <div class="admin-auth">
-            <button id="menu-button-products" class="btn btn-outline-success">
-              Products
-            </button>
+            <button id="menu-button-products" class="btn">Products</button>
           </div>
           <div class="admin-auth">
-            <button id="menu-button-users" class="btn btn-outline-success">
-              Users
-            </button>
+            <button id="menu-button-users" class="btn">Users</button>
           </div>
           <div class="post-auth">
-            <button id="menu-button-signout" class="btn btn-outline-danger">
-              Sign Out
-            </button>
+            <button id="menu-button-signout" class="btn">Sign Out</button>
           </div>
           <div class="toggle-user">
-            <button id="menu-button-user" class="btn btn-outline-primary">
-              View as User
-            </button>
+            <button id="menu-button-user" class="btn">View as User</button>
           </div>
           <div class="toggle-admin">
-            <button id="menu-button-admin" class="btn btn-outline-success">
-              View as Admin
-            </button>
+            <button id="menu-button-admin" class="btn">View as Admin</button>
           </div>
         </ul>
         <span>
-          <form
-            id="form-search"
-            class="form-inline my-2 my-lg-0 modal-menus-post-auth"
-          >
-            <input
-              name="searchKeywords"
-              class="form-control mr-sm-2 div-button"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              class="btn btn-secondary btn-lg my-2 my-sm-0"
-              id="search-button"
-              type="submit"
+          <div class="post-auth">
+            <form
+              id="form-search"
+              class="form-inline my-2 my-lg-0 modal-menus-post-auth"
             >
-              Search
-            </button>
-          </form>
+              <input
+                name="searchKeywords"
+                class="form-control mr-sm-2 div-button"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                class="btn btn-lg my-2 my-sm-0"
+                id="search-button"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+          </div>
         </span>
         <div class="user-auth">
-          <button
-            id="menu-button-shoppingcart"
-            class="btn btn-outline-success"
-            type="button"
-          >
+          <button id="menu-button-shoppingcart" class="btn" type="button">
             <img src="images/cart.png" width="30px" />
             (<span id="shoppingcart-count">0</span>)
           </button>
         </div>
         <div class="user-auth">
-          <button
-            id="menu-button-profile"
-            class="btn btn-outline-primary post-auth"
-          >
+          <button id="menu-button-profile" class="btn post-auth">
             Profile
           </button>
         </div>
@@ -161,11 +139,7 @@
           </div>
           <div id="modal-popup-info-body" class="modal-body"></div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
+            <button type="button" class="btn" data-dismiss="modal">
               Close
             </button>
           </div>

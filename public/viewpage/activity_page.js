@@ -79,12 +79,12 @@ function buildCommentView(comment) {
     </div>
     <br>
     <div class="d-inline-block">
-        <button class="btn btn-outline-danger delete-comment-button" value="${comment.docId}">Delete</button>
+        <button class="btn delete-comment-button" value="${comment.docId}">Delete</button>
     </div>
     <div class="d-inline-block">
         <button
         id="edit-comment-button"
-        class="btn btn-outline-primary modal-pre-auth"
+        class="btn modal-pre-auth"
         data-dismiss="modal"
         data-toggle="modal"
         data-target="#modal-edit-comment"

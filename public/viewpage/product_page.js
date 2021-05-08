@@ -28,7 +28,7 @@ export async function product_page() {
 
     let html = `
     <div>
-    <button id="button-add-product" class="btn btn-outline-danger">+ Add Product</button>
+    <button id="button-add-product" class="btn">+ Add Product</button>
     </div>
    `
 
@@ -89,11 +89,11 @@ function buildProductCard(product) {
       <form class="form-delete-product float-right" method="post">
             <input type="hidden" name="docId" value="${product.docId}">
             <input type="hidden" name="imageName" value="${product.imageName}">
-            <button class="btn btn-outline-danger" type="submit">DELETE</button>
+            <button class="btn" type="submit">DELETE</button>
       </form>
       <form class="form-edit-product float-right" method="post">
             <input type="hidden" name="docId" value="${product.docId}">
-            <button class="btn btn-outline-primary" type="submit">EDIT</button>
+            <button class="btn" type="submit">EDIT</button>
       </form>
    </div>
    `

@@ -54,9 +54,9 @@ export function addEventListeners() {
 export async function home_page() {
 
     let html
-    html = `<h1>Enjoy Your Shopping</h2>
+    html = `
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sort By
                     </button>
                     <div class="dropdown-menu">
@@ -154,7 +154,7 @@ export async function home_page() {
     }
 
     if (keywords != null) {
-        html = `<h1>Enjoy Your Shopping</h2>`
+        html = ``
 
         try {
             products = await FirebaseController.searchProducts(keywords)
@@ -308,7 +308,7 @@ export async function home_page() {
 
                 html += `
                 <hr class="solid">
-                <h2>No Comments Yet!</h2>
+                <font size="5">No Comments Yet!</font>
             `
                 Element.modalViewCommentsBody.innerHTML = html
             }
@@ -334,8 +334,8 @@ export async function home_page() {
 
 function buildProductCard(product, index, role) {
     return `
-        <div class="card" style="max-width: 300px; display: inline-block;">
-        <img src="${product.imageURL} class=" card-img-top" style="max-height: 300px; max-width: 300px;">
+        <div class="card" style="width: 400px; display: inline-block;">
+        <img src="${product.imageURL} class="card-img-top" style="height: 300px; width: 400px;">
         <div class="card-body">
             <h5 class="card-title">${product.name}</h5>
             <p class="card-text">
@@ -344,14 +344,14 @@ function buildProductCard(product, index, role) {
             <div class="container pt-3 bg-light ${Auth.currentUser && role != 'admin' ? 'd-block' : 'd-none'}">
                 <form method="post" class="d-inline form-decrease-qty">
                     <input type="hidden" name="index" value="${index}">
-                        <button class="btn btn-outline-danger" type="submit">&minus;</button>    
+                        <button class="btn" type="submit">&minus;</button>    
                 </form>
                     <div id="qty-${product.docId}" class="container rounded text-center text-white bg-primary d-inline-block w-50">
                         ${product.qty == null || product.qty == 0 ? 'Add' : product.qty}
                     </div >
                     <form method="post" class="d-inline form-increase-qty">
                         <input type="hidden" name="index" value="${index}">
-                            <button class="btn btn-outline-danger" type="submit">&plus;</button>    
+                            <button class="btn" type="submit">&plus;</button>    
                     </form><BR>
             </div>
             <div class="vertical-center">
