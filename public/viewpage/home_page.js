@@ -56,7 +56,7 @@ export async function home_page() {
     let html
     html = `
                 <div class="btn-group">
-                    <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button type="button" class="btn nav-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Sort By
                     </button>
                     <div class="dropdown-menu">

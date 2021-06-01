@@ -26,88 +26,26 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
-
     <title>Ghosts and GumDrops Online Shop</title>
   </head>
-
   <body>
-    <div class="my-banner">Ghosts and GumDrops Online Shop</div>
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <div class="pre-auth">
-            <button
-              id="menu-button-signin"
-              class="btn"
-              data-toggle="modal"
-              data-target="#modal-form-signin"
-            >
-              Sign In
-            </button>
-          </div>
-          <div class="user-auth">
-            <button id="menu-button-home" class="btn">Home</button>
-          </div>
-          <div class="admin-auth">
-            <button id="menu-button-home-admin" class="btn">Home</button>
-          </div>
-          <div class="user-auth">
-            <button id="menu-button-purchases" class="btn">Purchases</button>
-          </div>
-          <div class="user-auth">
-            <button id="menu-button-activity" class="btn">Activity</button>
-          </div>
-          <div class="admin-auth">
-            <button id="menu-button-products" class="btn">Products</button>
-          </div>
-          <div class="admin-auth">
-            <button id="menu-button-users" class="btn">Users</button>
-          </div>
-          <div class="post-auth">
-            <button id="menu-button-signout" class="btn">Sign Out</button>
-          </div>
-          <div class="toggle-user">
-            <button id="menu-button-user" class="btn">View as User</button>
-          </div>
-          <div class="toggle-admin">
-            <button id="menu-button-admin" class="btn">View as Admin</button>
-          </div>
-        </ul>
-        <span>
-          <div class="post-auth">
-            <form
-              id="form-search"
-              class="form-inline my-2 my-lg-0 modal-menus-post-auth"
-            >
-              <input
-                name="searchKeywords"
-                class="form-control mr-sm-2 div-button"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                class="btn btn-lg my-2 my-sm-0"
-                id="search-button"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
-          </div>
-        </span>
+    <div class="nav-header-top center">
+      <!-- <div class="my-banner">Ghosts and GumDrops Online Shop</div> -->
+      <div class="nav-header-top navbar navbar-expand-lg">
+        <img src="./images/gglogo.png" style="display: flex" />
+        <div class="post-auth">
+          <form id="form-search" class="form-inline">
+            <input
+              name="searchKeywords"
+              class="form-control div-button"
+              type="search"
+              style="width: 800px"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn" id="search-button" type="submit">Search</button>
+          </form>
+        </div>
         <div class="user-auth">
           <button id="menu-button-shoppingcart" class="btn" type="button">
             <img src="images/cart.png" width="30px" />
@@ -120,7 +58,65 @@
           </button>
         </div>
       </div>
-    </nav>
+      <!-- Begining of bottom navigation -->
+    </div>
+    <div class="nav-header-bottom">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <div class="pre-auth">
+              <button
+                id="menu-button-signin"
+                class="btn"
+                data-toggle="modal"
+                data-target="#modal-form-signin"
+              >
+                Sign In
+              </button>
+            </div>
+            <div class="user-auth">
+              <button id="menu-button-home" class="btn">Home</button>
+            </div>
+            <div class="admin-auth">
+              <button id="menu-button-home-admin" class="btn">Home</button>
+            </div>
+            <div class="user-auth">
+              <button id="menu-button-purchases" class="btn">Purchases</button>
+            </div>
+            <div class="user-auth">
+              <button id="menu-button-activity" class="btn">Activity</button>
+            </div>
+            <div class="admin-auth">
+              <button id="menu-button-products" class="btn">Products</button>
+            </div>
+            <div class="admin-auth">
+              <button id="menu-button-users" class="btn">Users</button>
+            </div>
+            <div class="post-auth">
+              <button id="menu-button-signout" class="btn">Sign Out</button>
+            </div>
+            <div class="toggle-user">
+              <button id="menu-button-user" class="btn">View as User</button>
+            </div>
+            <div class="toggle-admin">
+              <button id="menu-button-admin" class="btn">View as Admin</button>
+            </div>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
     <!-- Modal 0 Popup Info/Error-->
     <div
